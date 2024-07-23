@@ -6,7 +6,8 @@ function fibs(num) {
     }
 }
 function fibsRec(num) {
-    if (num < 2) { return 1; }
+    if (num < 2)
+        return 1;
     return fibsRec(num - 1) + fibsRec(num - 2)
 }
 fibs(6)
