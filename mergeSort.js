@@ -1,41 +1,31 @@
 let array = [4, 2, 7, 5, 0, 1, 3, 6]
-let temp = [];
-let arrtemp = [];
 
 function sort(array) {
-    if (array.length === 1)
+    if (array.length <= 1)
         return array;
-    let left = array.slice(0, array.length / 2);
-    let right = array.slice(array.length / 2);
-    merge(sort(left), sort(right));
+    let middle = Math.floor(array.length / 2)
+    let left = array.slice(0, middle);
+    let right = array.slice(middle);
+    return merge(sort(left), sort(right));
 }
 
 function merge(left, right) {
+    let tempArr = [];
     let leftIndex = 0;
     let rightIndex = 0;
-    while (leftIndex <= left.length && rightIndex <= right.length) {
-        if (left[leftIndex] === undefined) {
-            temp.push(right[rightIndex]);
+    while (leftIndex < left.length && rightIndex < right.length) {
+        if (left[leftIndex] < right[rightIndex]) {
+            tempArr.push(left[leftIndex]);
             leftIndex++;
-        }
-        else if (right[rightIndex] === undefined) {
-            temp.push(left[leftIndex]);
-            rightIndex++;
-        }
-        else if (left[leftIndex] < right[rightIndex]) {
-            temp.push(left[leftIndex]);
-            leftIndex++;
-            console.log('left')
-            console.log(temp);
         } else {
-            temp.push(right[rightIndex]);
+            tempArr.push(right[rightIndex]);
             rightIndex++;
-            console.log('right')
-            console.log(temp);
         };
     };
+    // u only need to change line 26
+    return
 };
-sort(array)
+console.log(sort(array))
 
 
 
