@@ -1,4 +1,5 @@
 let array = [4, 2, 7, 5, 0, 1, 3, 6]
+let sorted = []
 
 function sort(array) {
     if (array.length <= 1)
@@ -22,10 +23,20 @@ function merge(left, right) {
             rightIndex++;
         };
     };
-    // u only need to change line 26
-    return
+    // testing anyways
+    while (leftIndex < left.length) {
+        tempArr.push(left[leftIndex])
+        leftIndex++
+    }
+    while (rightIndex < right.length) {
+        tempArr.push(right[rightIndex])
+        rightIndex++
+    }
+    // fak u griff, now it works
+
+    // u only need to change line below -Bit
+    return tempArr
 };
 console.log(sort(array))
-
 
 
